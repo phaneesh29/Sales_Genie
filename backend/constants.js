@@ -1,0 +1,11 @@
+export const CORS_ORIGIN = process.env.CORS_ORIGIN;
+export const PORT = process.env.PORT;
+export const DB_NAME = process.env.DB_NAME;
+export const MONGO_URI = process.env.MONGO_URI
+export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+export const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY;
+export const GOOGLE_GENAI_API_KEY = process.env.GOOGLE_GENAI_API_KEY;
+export const FRONT_END_DOMAIN = process.env.FRONT_END_DOMAIN;
+export const SMTP_USER = process.env.SMTP_USER;
+export const SMTP_PASS = process.env.SMTP_PASS;
+export const APPLICATION_NAME = "Your Application Name"; 
