@@ -1,111 +1,112 @@
+// LandingPage.jsx
 import React from "react";
-import Slider from "react-slick";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function LandingPage() {
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
-
   return (
-    <div className="bg-gray-50 text-gray-900 font-sans">
+    <div className="min-h-screen bg-white text-gray-800 flex flex-col">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-4 bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <h1 className="text-2xl font-bold text-red-600">Saarathi<span className="text-blue-600">Lead</span></h1>
-        <div className="space-x-6">
-          <Link to="/admin/login" className="text-gray-700 hover:text-blue-600 font-medium">
+      <nav className="flex justify-between items-center px-6 py-4 shadow">
+        <h1 className="text-2xl font-bold text-indigo-600">SaarathiLead</h1>
+        <div className="space-x-4">
+          <a
+            href="/admin/login"
+            className="text-gray-600 hover:text-indigo-600 font-medium"
+          >
             Admin Login
-          </Link>
+          </a>
+          <a
+            href="/admin/dashboard"
+            className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+          >
+            Go to Dashboard
+          </a>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-blue-50 to-red-50 pt-20">
-        <motion.h1
-          className="text-5xl md:text-6xl font-extrabold text-red-600"
-          initial={{ opacity: 0, y: -20 }}
+      {/* Hero */}
+      <section className="flex flex-col items-center text-center py-20 px-6">
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Welcome to <span className="text-blue-600">SaarathiLead</span>
-        </motion.h1>
-        <motion.p
-          className="mt-4 max-w-xl text-gray-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          The ultimate lead management console — track, analyze, and scale your business effortlessly.
-        </motion.p>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="mt-8"
-        >
-          <Link
-            to="/admin/dashboard"
-            className="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-red-600 transition"
+          Manage Your Leads Effortlessly 🚀
+        </motion.h2>
+        <p className="mt-4 text-lg max-w-2xl text-gray-600">
+          SaarathiLead gives you the power to track, manage, and close leads
+          faster — all in one place.
+        </p>
+        <div className="mt-8 space-x-4">
+          <a
+            href="/admin/login"
+            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+          >
+            Admin Login
+          </a>
+          <a
+            href="/admin/dashboard"
+            className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50"
           >
             Go to Dashboard
-          </Link>
-        </motion.div>
-      </section>
-
-      {/* Carousel Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-8 text-black">Admin Console Highlights</h2>
-          <Slider {...sliderSettings}>
-            <div className="p-4">
-              <img
-                src="https://picsum.photos/1600/900"
-                alt="Analytics"
-                className="rounded-xl shadow-lg"
-              />
-            </div>
-            <div className="p-4">
-              <img
-                src="https://picsum.photos/1600/900"
-                alt="Lead Tracking"
-                className="rounded-xl shadow-lg"
-              />
-            </div>
-            <div className="p-4">
-              <img
-                src="https://picsum.photos/1600/900"
-                alt="Performance Insights"
-                className="rounded-xl shadow-lg"
-              />
-            </div>
-          </Slider>
+          </a>
         </div>
       </section>
 
-      {/* Call to Action - Documentation */}
-      <section className="py-20 bg-gradient-to-r from-blue-500 to-red-500 text-white text-center">
-        <h2 className="text-4xl font-bold">Need Help Using SaarathiLead?</h2>
-        <p className="mt-4 max-w-xl mx-auto">
-          Access our admin documentation to get started quickly and efficiently.
+      {/* Features */}
+      <section className="py-16 bg-gray-50 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Centralized Dashboard",
+              desc: "Get all your lead data in one clean and intuitive interface.",
+            },
+            {
+              title: "Smart Insights",
+              desc: "Identify high-value leads instantly with AI-powered scoring.",
+            },
+            {
+              title: "Fast Follow-ups",
+              desc: "Never miss an opportunity with quick action tools.",
+            },
+          ].map((f, i) => (
+            <motion.div
+              key={i}
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+              whileHover={{ scale: 1.03 }}
+            >
+              <h3 className="text-xl font-semibold text-indigo-600 mb-2">
+                {f.title}
+              </h3>
+              <p className="text-gray-600">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 text-center">
+        <h2 className="text-3xl font-bold text-gray-800">
+          Start Managing Your Leads Today
+        </h2>
+        <p className="mt-4 text-gray-600">
+          Log in now and take control of your sales pipeline.
         </p>
         <a
-          href="/docs"
-          className="mt-8 inline-block px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-white hover:text-black transition"
+          href="/admin/dashboard"
+          className="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
         >
-          View Documentation
+          Go to Dashboard
         </a>
       </section>
 
       {/* Footer */}
-      <footer className="py-6 bg-black text-white text-center">
-        <p>&copy; {new Date().getFullYear()} SaarathiLead. All rights reserved.</p>
+      <footer className="py-6 bg-gray-100 text-center text-gray-500">
+        © {new Date().getFullYear()} SaarathiLead. All rights reserved. |{" "}
+        <a href="/admin/login" className="text-indigo-600 hover:underline">
+          Admin Login
+        </a>
       </footer>
     </div>
   );
