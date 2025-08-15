@@ -10,6 +10,7 @@ import {
     SearchOutlined,
     PlusOutlined,
     ContactsOutlined,
+    NodeIndexOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
@@ -27,6 +28,7 @@ const menuItems = [
     { key: '/lead/add', label: 'Add Lead', icon: <PlusOutlined /> },
     { key: '/lead/search', label: 'Search Lead', icon: <SearchOutlined /> },
     { key: '/lead/meeting/all', label: 'All Meetings', icon: <ContactsOutlined /> },
+    { key: '/edit/workflow', label: 'Edit Workflow', icon: <NodeIndexOutlined /> },
 ];
 
 const SideNavDash = () => {
