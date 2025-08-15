@@ -1,12 +1,52 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Frontend (AI SDR)
 
-Currently, two official plugins are available:
+This folder contains the frontend application for the AI SDR project. It is built with React and Vite, providing a fast and modern user interface for managing leads, admins, and meetings.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Structure
 
-## Expanding the ESLint configuration
+- `.env`: Environment variable configuration for the frontend.
+- `index.html`: Main HTML file.
+- `package.json`: Project dependencies and scripts.
+- `vite.config.js`: Vite configuration.
+- `vercel.json`: Vercel deployment configuration.
+- `eslint.config.js`: ESLint configuration for code quality.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Folders
+- `public/`: Static assets (e.g., images, icons).
+- `src/`: Source code for the React application.
+  - `api/`: Axios instance and API utilities.
+  - `components/`: Reusable React components (e.g., Loader, SideNavDash).
+  - `pages/`: Main pages for the app (AddLead, AdminDashboard, AdminLogin, etc.).
+  - `index.css`: Global styles.
+  - `App.jsx`: Main app component.
+  - `main.jsx`: Entry point for React.
+
+## Setup
+
+1. Install dependencies:
+	```bash
+	npm install
+	```
+2. Copy `.env` and configure environment variables as needed.
+3. Start the development server:
+	```bash
+	npm run dev
+	```
+
+## Main Features
+- Admin authentication and registration
+- Lead management and search
+- Meeting scheduling and management
+- Workflow editing
+- Responsive dashboard UI
+
+## Scripts
+- `npm run dev`: Start the development server
+- `npm run build`: Build the app for production
+- `npm run preview`: Preview the production build
+
+## Notes
+- The app communicates with the backend API for data operations.
+- Make sure the backend server is running for full functionality.
+- Deployment is configured for Vercel in `vercel.json`.
