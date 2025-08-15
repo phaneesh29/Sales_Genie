@@ -75,13 +75,12 @@ const AllMeetings = () => {
                                     <p className="text-gray-500 mt-1">
                                         {new Date(lead.meetingDate).toLocaleString()}
                                     </p>
-                                    <Button
+                                    <a href={lead.meetingLink} target="_blank" rel="noopener noreferrer"><Button
                                         type="primary"
                                         className="mt-4 bg-blue-600 hover:bg-blue-700"
-                                        onClick={() => handleJoinMeeting(lead._id)}
                                     >
                                         Join Meeting
-                                    </Button>
+                                    </Button></a>
                                 </Card>
                             </List.Item>
                         )}
