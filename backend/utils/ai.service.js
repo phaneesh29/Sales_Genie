@@ -78,35 +78,43 @@ export async function callAIToGetRatingAndInsight(lead) {
 export const generateEmailDraft = async (lead) => {
     try {
         const prompt = `
-        You are an expert B2B sales outreach writer.
-        You are a creative writer specializing in vibrant and engaging language. 
-        Generate a short paragraph (3–5 sentences) that is visually and emotionally colorful. 
-        Use descriptive adjectives, playful metaphors, and imagery that evokes colors, light, and texture. 
-        Make the text lively, exciting, and vivid, suitable for catching attention in a blog, social media post, or banner. 
-        Do not include HTML or color codes—focus purely on colorful language.
+        You are a friendly SaaS founder writing a cold outreach email.
+        Write in a warm, approachable tone that feels personal and human — similar to how a startup founder might personally welcome a new user.
 
-        Based on the following lead details, write:
-        1. A short, engaging subject line for a cold outreach email.
-        2. A personalized, concise body (50–100 words) introducing our company and offering value, based on the insight provided.
+        Output Requirements:
+        - Return the "body" as valid HTML, not plain text.
+        - Use <p>, <strong>, <em>, and <ul>/<li> for formatting.
+        - Keep it professional but friendly.
 
+        Structure:
+        1. Start with a friendly greeting using the lead’s name if available.
+        2. Briefly introduce yourself as "Madwa" and your role (founder, co-founder, etc.) at SaaratiLead.
+        3. Give a quick overview of what our company does in 2–3 sentences, keeping it engaging and easy to understand.
+        4. Provide a short step-by-step or "how it works" section (bullet points allowed).
+        5. End with an invitation to reply or click a meeting link.
+
+        Length: 80–120 words total.
+        Avoid heavy marketing fluff — make it sound genuine and conversational.
+
+        Company: Our Company
         Lead details:
         Name: ${lead.name}
         Role: ${lead.role}
         Company: ${lead.company}
         Age: ${lead.age}
-        industry: ${lead.industry || "N/A"}
-        leadSource: ${lead.leadSource || "N/A"}
-        interestedIn: ${lead.interestedIn || "N/A"}
-        category: ${lead.category || "N/A"}
+        Industry: ${lead.industry || "N/A"}
+        Lead Source: ${lead.leadSource || "N/A"}
+        Interested In: ${lead.interestedIn || "N/A"}
+        Category: ${lead.category || "N/A"}
         Experience: ${lead.experience} years
-        location: ${lead.location || "N/A"}
+        Location: ${lead.location || "N/A"}
         Insight: ${lead.insight || "No insight available"}
-        leadScore: ${lead.leadScore}
+        Lead Score: ${lead.leadScore}
 
-        Return strictly as JSON with:
+        Return strictly as JSON:
         {
             "subject": string,
-            "body": string
+            "body": string // HTML formatted string
         }
         `;
 
@@ -145,39 +153,45 @@ export const generateEmailDraft = async (lead) => {
 export const generateFollowUpEmail = async (lead) => {
     try {
         const prompt = `
-            You are an expert B2B sales follow-up writer. 
+        You are an expert B2B sales follow-up writer. 
 
-            Write a **vibrant, engaging, and visually appealing follow-up email**. Use **rich text formatting** including bold, italics, bullet points, and emojis to make the email stand out. Keep it professional, friendly, and eye-catching.
+        Write a vibrant, engaging, and visually appealing follow-up email in **HTML** format.  
+        Use:
+        - <b> for bold
+        - <i> for italics
+        - <ul> and <li> for bullet points
+        - Emojis sparingly for visual interest
 
-            Requirements:
-            1. Generate a **short, attention-grabbing subject line** for a follow-up email (second contact after initial outreach).  
-            2. Generate a **personalized email body** (50–100 words) that:  
-            - References the previous outreach politely (without sounding pushy)  
-            - Restates the value proposition clearly  
-            - Encourages the lead to respond or schedule a meeting  
-            - Uses **bold** for key points, *italics* for emphasis, and emojis sparingly for visual interest  
-            - Can include bullet points to highlight benefits or features  
+        Requirements:
+        1. Generate a short, attention-grabbing subject line for a follow-up email (second contact after initial outreach).
+        2. Generate a personalized HTML email body (50–100 words) that:
+        - References the previous outreach politely (without sounding pushy)
+        - Restates the value proposition clearly
+        - Encourages the lead to respond or schedule a meeting
+        - Uses the HTML tags mentioned for emphasis
+        - Includes bullet points to highlight benefits or features
 
-            Lead details:  
-            Name: ${lead.name}  
-            Role: ${lead.role}  
-            Company: ${lead.company}  
-            Age: ${lead.age}  
-            Industry: ${lead.industry || "N/A"}  
-            Lead Source: ${lead.leadSource || "N/A"}  
-            Interested In: ${lead.interestedIn || "N/A"}  
-            Category: ${lead.category || "N/A"}  
-            Experience: ${lead.experience} years  
-            Location: ${lead.location || "N/A"}  
-            Insight: ${lead.insight || "No insight available"}  
-            Lead Score: ${lead.leadScore}  
+        Lead details:  
+        Name: ${lead.name}  
+        Role: ${lead.role}  
+        Company: ${lead.company}  
+        Age: ${lead.age}  
+        Industry: ${lead.industry || "N/A"}  
+        Lead Source: ${lead.leadSource || "N/A"}  
+        Interested In: ${lead.interestedIn || "N/A"}  
+        Category: ${lead.category || "N/A"}  
+        Experience: ${lead.experience} years  
+        Location: ${lead.location || "N/A"}  
+        Insight: ${lead.insight || "No insight available"}  
+        Lead Score: ${lead.leadScore}  
 
-            Return strictly as JSON:  
-            {
-            "subject": string,
-            "body": string
-            }
-            `;
+        Return the result strictly as valid JSON with the following format and no extra text:
+        {
+        "subject": "string - short subject line",
+        "body": "string - HTML email body"
+        }
+        `;
+
 
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",

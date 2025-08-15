@@ -11,6 +11,7 @@ import {
     PlusOutlined,
     ContactsOutlined,
     NodeIndexOutlined,
+    FieldTimeOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
@@ -29,6 +30,8 @@ const menuItems = [
     { key: '/lead/search', label: 'Search Lead', icon: <SearchOutlined /> },
     { key: '/lead/meeting/all', label: 'All Meetings', icon: <ContactsOutlined /> },
     { key: '/edit/workflow', label: 'Edit Workflow', icon: <NodeIndexOutlined /> },
+    { key: '*', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
+    { key: '*', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
 ];
 
 const SideNavDash = () => {
@@ -94,7 +97,7 @@ const SideNavDash = () => {
                     }))}
                 />
 
-                <div style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center'}}>
                     <Divider style={{ margin: '20px 0' }} />
                     <Avatar size={50} icon={<UserOutlined />} />
                     <div style={{ marginTop: 10 }}>

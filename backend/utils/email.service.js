@@ -15,7 +15,7 @@ export const mailer = async ({ to, subject, text }) => {
             from: `${APPLICATION_NAME}<${process.env.SMTP_USER}>`,
             to,
             subject,
-            text,
+            html:text,
         });
     } catch (error) {
         console.error("❌ Email sending failed:", error.message);

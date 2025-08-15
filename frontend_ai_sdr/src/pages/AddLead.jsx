@@ -11,16 +11,15 @@ const AddLead = () => {
   const [btnLoading, setBtnLoading] = useState(false);
 
   const onFinish = async (values) => {
-    // force everything to strings
     const strValues = Object.fromEntries(
       Object.entries(values).map(([k, v]) => [k, v == null ? '' : String(v)])
     );
 
-    // interestedIn: split by comma, trim, dedupe, sort
     const interests = (strValues.interestedIn || '')
       .split(',')
       .map(s => s.trim())
       .filter(Boolean);
+
     const dedupedSorted = Array.from(new Set(interests))
       .sort((a, b) => a.localeCompare(b));
 
@@ -77,7 +76,7 @@ const AddLead = () => {
               <Input placeholder="30" />
             </Form.Item>
 
-            <Form.Item name="phone" label="Phone" rules={[{ required: true, message: 'Enter the phone number' }]}>
+            <Form.Item name="phone" label="Phone">
               <Input placeholder="+1 234 567 890" />
             </Form.Item>
 
@@ -89,35 +88,26 @@ const AddLead = () => {
               <Input placeholder="ABC Corp" />
             </Form.Item>
 
-            <Form.Item
-              name="experience"
-              label="Experience (years)"
-              rules={[{ required: true, message: 'Enter years of experience' }]}
-            >
+            <Form.Item name="experience" label="Experience (years)">
               <Input placeholder="5" />
             </Form.Item>
 
-            <Form.Item name="industry" label="Industry" rules={[{ required: true, message: 'Enter the industry' }]}>
+            <Form.Item name="industry" label="Industry">
               <Input placeholder="Technology" />
             </Form.Item>
 
-            <Form.Item name="location" label="Location" rules={[{ required: true, message: 'Enter the location' }]}>
+            <Form.Item name="location" label="Location">
               <Input placeholder="New York, USA" />
             </Form.Item>
 
-            <Form.Item
-              name="linkedIn"
-              label="LinkedIn URL"
-              rules={[{ required: true, message: 'Enter the LinkedIn profile URL' }]}
-            >
+            <Form.Item name="linkedIn" label="LinkedIn URL">
               <Input placeholder="https://linkedin.com/in/username" />
             </Form.Item>
 
-            <Form.Item name="leadSource" label="Lead Source" rules={[{ required: true, message: 'Enter lead source' }]}>
+            <Form.Item name="leadSource" label="Lead Source">
               <Input placeholder="Conference, Referral, etc." />
             </Form.Item>
 
-            {/* Comma-separated input that becomes an array */}
             <Form.Item
               name="interestedIn"
               label="Interested In (comma-separated)"
@@ -135,11 +125,7 @@ const AddLead = () => {
               <Input placeholder="Email / Phone / WhatsApp" />
             </Form.Item>
 
-            <Form.Item
-              name="category"
-              label="Category"
-              rules={[{ required: true, message: 'Enter category' }]}
-            >
+            <Form.Item name="category" label="Category">
               <Input placeholder="B2B or B2C" />
             </Form.Item>
 
