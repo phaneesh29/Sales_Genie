@@ -68,9 +68,9 @@ export const adminLoginController = async (req, res) => {
 
         const adminToken = admin.generateAccessToken()
         const options = {
-            httpOnly: false,
+            httpOnly: true,
             secure: true,
-            sameSite: true,
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000,
         }
         return res.status(200).cookie("adminToken", adminToken, options).json({ message: "User Logged in successfully", adminToken })
