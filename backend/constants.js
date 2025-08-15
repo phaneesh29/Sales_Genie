@@ -8,4 +8,4 @@ export const GOOGLE_GENAI_API_KEY = process.env.GOOGLE_GENAI_API_KEY;
 export const FRONT_END_DOMAIN = process.env.FRONT_END_DOMAIN;
 export const SMTP_USER = process.env.SMTP_USER;
 export const SMTP_PASS = process.env.SMTP_PASS;
-export const APPLICATION_NAME = "Your Application Name"; 
+export const APPLICATION_NAME = "Saarthilead"; 
