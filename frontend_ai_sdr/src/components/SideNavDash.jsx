@@ -30,8 +30,8 @@ const menuItems = [
     { key: '/lead/search', label: 'Search Lead', icon: <SearchOutlined /> },
     { key: '/lead/meeting/all', label: 'All Meetings', icon: <ContactsOutlined /> },
     { key: '/edit/workflow', label: 'Edit Workflow', icon: <NodeIndexOutlined /> },
-    { key: '*', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
-    { key: '*', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
+    { key: '#', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
+    { key: '#', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
 ];
 
 const SideNavDash = () => {
