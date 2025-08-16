@@ -30,8 +30,6 @@ const menuItems = [
     { key: '/lead/search', label: 'Search Lead', icon: <SearchOutlined /> },
     { key: '/lead/meeting/all', label: 'All Meetings', icon: <ContactsOutlined /> },
     { key: '/edit/workflow', label: 'Edit Workflow', icon: <NodeIndexOutlined /> },
-    { key: '#', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
-    { key: '#', label: 'Coming Soon', icon: <FieldTimeOutlined /> },
 ];
 
 const SideNavDash = () => {
@@ -85,6 +83,24 @@ const SideNavDash = () => {
                     overflow: 'auto', // scroll only inside sidebar if content exceeds
                 }}
             >
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '20px',
+                    paddingLeft: '10px'
+                }}>
+                    <Avatar
+                        size={36}
+                        style={{ backgroundColor: '#1890ff', fontWeight: 'bold' }}
+                    >
+                        S
+                    </Avatar>
+                    <Text strong style={{ fontSize: '18px', letterSpacing: '0.5px' }}>
+                        Sales Genie
+                    </Text>
+                </div>
+
                 <Menu
                     mode="inline"
                     selectedKeys={[location.pathname]}
@@ -97,7 +113,7 @@ const SideNavDash = () => {
                     }))}
                 />
 
-                <div style={{ textAlign: 'center'}}>
+                <div style={{ textAlign: 'center' }}>
                     <Divider style={{ margin: '20px 0' }} />
                     <Avatar size={50} icon={<UserOutlined />} />
                     <div style={{ marginTop: 10 }}>
