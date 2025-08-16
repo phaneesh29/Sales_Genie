@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, message, Card, Typography } from 'antd';
+import { Form, Input, Button, message, Card, Typography, Select } from 'antd';
 import SideNavDash from '../components/SideNavDash';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
@@ -92,8 +92,18 @@ const AddLead = () => {
               <Input placeholder="5" />
             </Form.Item>
 
-            <Form.Item name="industry" label="Industry">
-              <Input placeholder="Technology" />
+            <Form.Item
+              name="industry"
+              label="Industry"
+              rules={[{ required: true, message: 'Select an industry' }]}
+            >
+              <Select placeholder="Select industry">
+                <Select.Option value="Technology">Technology</Select.Option>
+                <Select.Option value="Finance">Finance</Select.Option>
+                <Select.Option value="Healthcare">Healthcare</Select.Option>
+                <Select.Option value="Education">Education</Select.Option>
+                <Select.Option value="Retail">Retail</Select.Option>
+              </Select>
             </Form.Item>
 
             <Form.Item name="location" label="Location">
