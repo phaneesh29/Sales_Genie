@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Tabs, Table, Spin, Checkbox, Button, Dropdown, Menu } from "antd";
 import SideNavDash from "../components/SideNavDash";
 import axiosInstance from "../api/axiosInstance";
+import {ReloadOutlined} from "@ant-design/icons";
 
 const { TabPane } = Tabs;
 
@@ -180,7 +181,12 @@ export default function AdminDashboard() {
       <SideNavDash />
       <div className="flex-1 p-6">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+            <Button type="primary" onClick={fetchLeads}>
+              <ReloadOutlined />  Refresh
+            </Button>
+          </div>
 
           <div className="flex gap-2">
             <Dropdown

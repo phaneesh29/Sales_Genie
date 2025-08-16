@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SideNavDash from '../components/SideNavDash';
 import axiosInstance from '../api/axiosInstance';
 import { Table, Button, Space, Tag, Typography, Alert, Popconfirm, Spin } from 'antd';
+import { ReloadOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -107,9 +108,14 @@ const AllAdmins = () => {
     <div className="flex">
       <SideNavDash />
       <div className="flex-1 p-8 bg-gray-50 min-h-screen">
-        <Title level={2} style={{ marginBottom: 20 }}>
-          All Admins
-        </Title>
+        <div className='flex items-center gap-4 '>
+          <Title level={2} style={{ marginBottom: 20 }}>
+            All Admins
+          </Title>
+          <Button type="primary" style={{ marginBottom: 20 }} onClick={fetchAdmins}>
+            <ReloadOutlined />  Refresh
+          </Button>
+        </div>
 
         {error && (
           <Alert

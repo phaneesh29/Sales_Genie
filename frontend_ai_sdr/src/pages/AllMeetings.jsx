@@ -3,6 +3,7 @@ import { Card, List, Spin, Button, Empty, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import SideNavDash from '../components/SideNavDash';
 import axiosInstance from '../api/axiosInstance';
+import {ReloadOutlined} from "@ant-design/icons";
 
 const AllMeetings = () => {
     const [loading, setLoading] = useState(false);
@@ -36,7 +37,12 @@ const AllMeetings = () => {
             <SideNavDash />
 
             <div className="flex-1 p-6">
-                <h1 className="text-3xl font-bold mb-6">All Meetings</h1>
+                <div className='flex items-center gap-4 '>
+                    <h1 className="text-3xl font-bold mb-6">All Meetings</h1>
+                    <Button type="primary" className='mb-6' onClick={fetchMeetings}>
+                        <ReloadOutlined />  Refresh
+                    </Button>
+                </div>
 
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
