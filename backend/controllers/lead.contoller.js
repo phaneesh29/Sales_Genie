@@ -134,7 +134,7 @@ export const leadGetAllController = async (req, res) => {
             LeadModel.find({ status: "contacted" }).sort({ createdAt: -1, leadScore: -1 }),
             LeadModel.find({ status: "follow-up" }).sort({ createdAt: -1, leadScore: -1 }),
             LeadModel.find({ status: "closed" }).sort({ createdAt: -1, leadScore: -1 }),
-            LeadModel.find({ readyToMeet: true }).sort({ createdAt: -1, leadScore: -1 }),
+            LeadModel.find({ status: "meeting",readyToMeet: true }).sort({ createdAt: -1, leadScore: -1 }),
         ]);
 
         res.status(200).json({ message: "Fetched all leads", newLeads, contactedLeads, followUpLeads, closedLeads, readyToMeetLeads });
@@ -285,7 +285,7 @@ export const leadMeetingReadyController = async (req, res) => {
 
 export const getAllMeetingsController = async (req, res) => {
     try {
-        const meetings = await LeadModel.find({ readyToMeet: true, meetingDate: { $ne: null }, meetingLink: { $ne: "" } })
+        const meetings = await LeadModel.find({ status: "meeting", readyToMeet: true, meetingDate: { $ne: null }, meetingLink: { $ne: "" } })
         if (meetings.length === 0) {
             return res.status(404).json({ message: "No meetings found" });
         }
