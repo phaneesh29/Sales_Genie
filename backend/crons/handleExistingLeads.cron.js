@@ -102,8 +102,8 @@ const sendEmail = async () => {
                 });
 
                 email.status = "sent";
-                email.nextMailDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
-                    await email.save();
+                email.nextMailDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000);
+                await email.save();
 
                 lead.status = "contacted";
                 await lead.save();
