@@ -80,7 +80,8 @@ const sendEmail = async () => {
     console.log("📤 Running email send cron...");
 
     try {
-        const emails = await EmailModel.find({ status: "pending" }).limit(20);
+        const now = new Date();
+        const emails = await EmailModel.find({ status: "pending", nextMailDate: { $lte: now } }).limit(20);
 
         if (emails.length === 0) {
             console.log(`✅ No emails to send. ${new Date()}`);
