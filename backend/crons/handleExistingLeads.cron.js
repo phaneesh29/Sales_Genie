@@ -9,10 +9,9 @@ const markFollowUp = async () => {
 
     try {
         const now = new Date();
-        const cutoff = new Date(now.getTime() + 24 * 60 * 60 * 1000); // next 24 hrs
 
         const emailsDue = await EmailModel.find({
-            nextMailDate: { $lte: cutoff },
+            nextMailDate: { $lte: now },
             status: "sent"
         });
 
