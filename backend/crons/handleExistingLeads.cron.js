@@ -95,6 +95,11 @@ const sendEmail = async () => {
                     continue;
                 }
 
+                if (lead.status === "meeting") {
+                    console.log(`⏭️ Skipping email for lead ${lead._id} - already in meeting status`);
+                    continue;
+                }
+
                 await mailer({
                     to: lead.email,
                     subject: email.subject,

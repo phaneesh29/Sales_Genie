@@ -7,7 +7,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-white text-gray-800 flex flex-col">
       {/* Navbar */}
       <nav className="flex justify-between items-center px-6 py-4 shadow">
-        <h1 className="text-2xl font-bold text-indigo-600">SaarathiLead</h1>
+        <h1 className="text-2xl font-bold text-indigo-600">JeetCRM</h1>
         <div className="space-x-4">
           <a
             href="/admin/login"
@@ -35,7 +35,7 @@ export default function LandingPage() {
           Manage Your Leads Effortlessly 🚀
         </motion.h2>
         <p className="mt-4 text-lg max-w-2xl text-gray-600">
-          SaarathiLead gives you the power to track, manage, and close leads
+          JeetCRM gives you the power to track, manage, and close leads
           faster — all in one place.
         </p>
         <div className="mt-8 space-x-4">
@@ -103,7 +103,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="py-6 bg-gray-100 text-center text-gray-500">
-        © {new Date().getFullYear()} SaarathiLead. All rights reserved. |{" "}
+        © {new Date().getFullYear()} JeetCRM. All rights reserved. |{" "}
         <a href="/admin/login" className="text-indigo-600 hover:underline">
           Admin Login
         </a>

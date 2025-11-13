@@ -87,8 +87,8 @@ export const generateEmailDraft = async (lead) => {
         - Keep it professional but friendly.
 
         Structure:
-        1. Start with a friendly greeting using the lead’s name if available.
-        2. Briefly introduce yourself as "Madwa" and your role (founder, co-founder, etc.) at SaaratiLead.
+        1. Start with a friendly greeting using the lead's name if available.
+        2. Briefly introduce yourself as "JeetCRM" and your role (founder, co-founder, etc.) at JeetCRM.
         3. Give a quick overview of what our company does in 2–3 sentences, keeping it engaging and easy to understand.
         4. Provide a short step-by-step or "how it works" section (bullet points allowed).
         5. End with an invitation to reply or click a meeting link.
@@ -96,7 +96,7 @@ export const generateEmailDraft = async (lead) => {
         Length: 80–120 words total.
         Avoid heavy marketing fluff — make it sound genuine and conversational.
 
-        Company: Our Company
+        Company: JeetCRM
         Lead details:
         Name: ${lead.name}
         Role: ${lead.role}

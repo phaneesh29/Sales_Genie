@@ -94,10 +94,10 @@ const SideNavDash = () => {
                         size={36}
                         style={{ backgroundColor: '#1890ff', fontWeight: 'bold' }}
                     >
-                        S
+                        J
                     </Avatar>
                     <Text strong style={{ fontSize: '18px', letterSpacing: '0.5px' }}>
-                        Sales Genie
+                        JeetCRM
                     </Text>
                 </div>
 
