@@ -153,7 +153,7 @@ export const generateEmailDraft = async (lead) => {
 export const generateFollowUpEmail = async (lead) => {
     try {
         const prompt = `
-        You are an expert B2B sales follow-up writer. 
+        You are an expert B2B sales follow-up writer from JeetCRM. 
 
         Write a vibrant, engaging, and visually appealing follow-up email in **HTML** format.  
         Use:
