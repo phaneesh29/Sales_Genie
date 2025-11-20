@@ -38,9 +38,8 @@ const AddLead = () => {
   };
 
   return (
-    <div className="flex">
-      <SideNavDash />
-      <div className="flex-1 p-6 bg-gray-50 min-h-screen">
+    <SideNavDash>
+      <div className="p-6">
         <Card className="max-w-2xl mx-auto shadow-md">
           <Title level={3}>Add New Lead</Title>
 
@@ -147,7 +146,7 @@ const AddLead = () => {
           </Form>
         </Card>
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

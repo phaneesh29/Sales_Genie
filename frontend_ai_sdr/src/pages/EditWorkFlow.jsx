@@ -50,9 +50,8 @@ const EditWorkFlow = () => {
   );
 
   return (
-    <div style={{ width: "100%", height: "100vh", display: "flex" }}>
-      <SideNavDash />
-      <div style={{ flex: 1 }}>
+    <SideNavDash>
+      <div style={{ height: "calc(100vh - 40px)" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -66,7 +65,7 @@ const EditWorkFlow = () => {
           <Controls />
         </ReactFlow>
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

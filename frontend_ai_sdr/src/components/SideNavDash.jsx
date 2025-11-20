@@ -12,12 +12,13 @@ import {
     ContactsOutlined,
     NodeIndexOutlined,
     FieldTimeOutlined,
+    MailOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
 import Loader from './Loader';
 
-const { Sider } = Layout;
+const { Sider, Content } = Layout;
 const { Text } = Typography;
 
 const menuItems = [
@@ -29,10 +30,10 @@ const menuItems = [
     { key: '/lead/add', label: 'Add Lead', icon: <PlusOutlined /> },
     { key: '/lead/search', label: 'Search Lead', icon: <SearchOutlined /> },
     { key: '/lead/meeting/all', label: 'All Meetings', icon: <ContactsOutlined /> },
-    { key: '/edit/workflow', label: 'Edit Workflow', icon: <NodeIndexOutlined /> },
+    { key: '/email/all', label: 'All Emails', icon: <MailOutlined /> },
 ];
 
-const SideNavDash = () => {
+const SideNavDash = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [profile, setProfile] = useState({});
@@ -66,12 +67,12 @@ const SideNavDash = () => {
     if (loading) return <Loader />;
 
     return (
-        <>
+        <Layout style={{ minHeight: '100vh' }}>
             <Sider
                 width={250}
                 style={{
                     height: '100vh',
-                    position: 'fixed', // fix the sidebar
+                    position: 'fixed',
                     left: 0,
                     top: 0,
                     background: '#fff',
@@ -80,7 +81,8 @@ const SideNavDash = () => {
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     boxShadow: '2px 0px 8px rgba(0,0,0,0.1)',
-                    overflow: 'auto', // scroll only inside sidebar if content exceeds
+                    overflow: 'auto',
+                    zIndex: 100,
                 }}
             >
                 <div style={{
@@ -132,12 +134,13 @@ const SideNavDash = () => {
                     </Button>
                 </div>
             </Sider>
-
-            {/* Main content wrapper */}
-            <div style={{ marginLeft: 250, padding: '20px', minHeight: '100vh', background: '#f0f2f5' }}>
-                {/* Dashboard content goes here */}
-            </div>
-        </>
+            
+            <Layout style={{ marginLeft: 250, background: '#f0f2f5' }}>
+                <Content style={{ minHeight: '100vh' }}>
+                    {children}
+                </Content>
+            </Layout>
+        </Layout>
     );
 };
 

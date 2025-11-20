@@ -33,10 +33,8 @@ const AllMeetings = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-gray-100">
-            <SideNavDash />
-
-            <div className="flex-1 p-6">
+        <SideNavDash>
+            <div className="p-6">
                 <div className='flex items-center gap-4 '>
                     <h1 className="text-3xl font-bold mb-6">All Meetings</h1>
                     <Button type="primary" className='mb-6' onClick={fetchMeetings}>
@@ -93,7 +91,7 @@ const AllMeetings = () => {
                     />
                 )}
             </div>
-        </div>
+        </SideNavDash>
     );
 };
 

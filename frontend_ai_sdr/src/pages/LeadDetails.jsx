@@ -121,9 +121,8 @@ const LeadDetails = () => {
     }
 
     return (
-        <div className="flex bg-gray-50 min-h-screen">
-            <SideNavDash />
-            <div className="flex-1 p-6">
+        <SideNavDash>
+            <div className="p-6">
 
                 <Card title="Lead Details" bordered={false} className="shadow-lg">
                     <Descriptions bordered column={1} size="middle">
@@ -272,7 +271,7 @@ const LeadDetails = () => {
                     </div>
                 </Card>
             </div>
-        </div>
+        </SideNavDash>
     );
 };
 

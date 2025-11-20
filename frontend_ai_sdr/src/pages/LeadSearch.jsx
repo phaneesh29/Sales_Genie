@@ -55,9 +55,8 @@ const LeadSearch = () => {
   }, [queryParam]);
 
   return (
-    <div className="flex bg-gray-50 min-h-screen">
-      <SideNavDash />
-      <div className="flex-1 p-6">
+    <SideNavDash>
+      <div className="p-6">
         <Card title="Lead Search" className="shadow-lg">
           <Space.Compact style={{ width: "100%" }}>
             <Input
@@ -101,7 +100,7 @@ const LeadSearch = () => {
           </div>
         </Card>
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

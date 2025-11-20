@@ -44,3 +44,12 @@ export const sendCustomEmailController = async (req, res) => {
         return res.status(500).json({ message: error.message || "Internal server error" })
     }
 }
+
+export const getAllEmailController = async (req, res) => {
+    try {
+        const emails = await EmailModel.find().sort({ createdAt: -1 });
+        return res.status(200).json({ emails });
+    } catch (error) {
+        return res.status(500).json({ message: error.message || "Internal server error" })
+    }
+}

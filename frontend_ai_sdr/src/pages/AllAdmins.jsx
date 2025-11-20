@@ -105,9 +105,8 @@ const AllAdmins = () => {
   ];
 
   return (
-    <div className="flex">
-      <SideNavDash />
-      <div className="flex-1 p-8 bg-gray-50 min-h-screen">
+    <SideNavDash>
+      <div className="p-8">
         <div className='flex items-center gap-4 '>
           <Title level={2} style={{ marginBottom: 20 }}>
             All Admins
@@ -140,7 +139,7 @@ const AllAdmins = () => {
           />
         )}
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

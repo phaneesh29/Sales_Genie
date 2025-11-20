@@ -1,10 +1,11 @@
 import nodemailer from "nodemailer";
-import { APPLICATION_NAME } from "../constants.js";
+import { APPLICATION_NAME, SMTP_HOST, SMTP_PORT } from "../constants.js";
 
 export const mailer = async ({ to, subject, text }) => {
     try {
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: SMTP_HOST,
+            port: SMTP_PORT,
             auth: {
                 user: process.env.SMTP_USER, 
                 pass: process.env.SMTP_PASS

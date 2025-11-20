@@ -46,9 +46,8 @@ const UploadLeads = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-gray-50">
-            <SideNavDash />
-            <div className="flex-1 flex items-center justify-center p-6">
+        <SideNavDash>
+            <div className="flex items-center justify-center p-6">
                 <Card
                     style={{
                         width: '100%',
@@ -92,7 +91,7 @@ const UploadLeads = () => {
                     </Space>
                 </Card>
             </div>
-        </div>
+        </SideNavDash>
     );
 };
 

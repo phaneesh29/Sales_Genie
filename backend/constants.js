@@ -7,5 +7,7 @@ export const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY;
 export const GOOGLE_GENAI_API_KEY = process.env.GOOGLE_GENAI_API_KEY;
 export const FRONT_END_DOMAIN = process.env.FRONT_END_DOMAIN;
 export const SMTP_USER = process.env.SMTP_USER;
+export const SMTP_HOST = process.env.SMTP_HOST;
+export const SMTP_PORT = process.env.SMTP_PORT;
 export const SMTP_PASS = process.env.SMTP_PASS;
 export const APPLICATION_NAME = "JeetCRM"; 

@@ -28,9 +28,8 @@ const AdminRegister = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
-      <SideNavDash />
-      <div className="flex-1 flex justify-center items-center bg-gray-50 p-8">
+    <SideNavDash>
+      <div className="flex justify-center items-center p-8" style={{ minHeight: 'calc(100vh - 40px)' }}>
         <Card
           style={{
             width: '100%',
@@ -100,7 +99,7 @@ const AdminRegister = () => {
           </Form>
         </Card>
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

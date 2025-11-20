@@ -55,9 +55,8 @@ const AdminSettings = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex">
-      <SideNavDash />
-      <div className="flex-1 p-8 bg-gray-50 min-h-screen">
+    <SideNavDash>
+      <div className="p-8">
         <Title level={3} className="mb-6">Admin Settings</Title>
 
         {serverError && <p className="text-red-500">{serverError}</p>}
@@ -102,7 +101,7 @@ const AdminSettings = () => {
           {btnLoading ? "Updating..." : "Update Profile"}
         </Button>
       </div>
-    </div>
+    </SideNavDash>
   );
 };
 

@@ -14,6 +14,7 @@ import LeadSearch from './pages/LeadSearch'
 import AllMeetings from './pages/AllMeetings'
 import ReadyForMeeting from './pages/ReadyForMeeting'
 import EditWorkFlow from './pages/EditWorkFlow'
+import AllEmails from './pages/AllEmails'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/lead/meeting/all" element={<AllMeetings />} />
         <Route path="/meeting/ready/:id" element={<ReadyForMeeting />} />
         <Route path="/edit/workflow" element={<EditWorkFlow />} />
+        <Route path="/email/all" element={<AllEmails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
